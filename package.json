@@ -19,11 +19,17 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@sap/cds-dk": ">=8",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "rimraf": "^5.0.5",
+    "mbt": "^1.2.29"
   },
   "scripts": {
     "start": "cds-serve",
-    "prepare": "husky"
+    "prepare": "husky",
+    "watch-fscapapp-ui": "cds watch --open fscapapp-ui/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy FSCapApp --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "cds": {
     "requires": {
@@ -31,5 +37,8 @@
         "auth": "xsuaa"
       }
     }
-  }
+  },
+  "sapux": [
+    "app/fscapapp-ui"
+  ]
 }

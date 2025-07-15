@@ -210,31 +210,7 @@
                                     "navigationProperties": [
                                         "childEntities1",
                                         "childEntity2/decimalProperty"
-                                    ],
-                                    "filterFields": {
-                                        "starsValue": {
-                                            "label": "{i18n>customFilter}",
-                                            "property": "starsValue",
-                                            "template": "sap.fe.fsCapApp.mainApp.ext.CustomFilter-Rating"
-                                        },
-                                        "validFrom": { 
-                                            "settings": {
-                                                "defaultValues": [{"operator": "LASTYEARS", "values": [10]}],
-                                                "operatorConfiguration": [
-                                                    {
-                                                        "path": "key",
-                                                         "equals": "TODAY",
-                                                         "exclude": false
-                                                     },
-                                                     {
-                                                       "path": "key",
-                                                        "equals": "TODAYXYDAYS",
-                                                        "exclude": true
-                                                     }
-                                               ]
-                                            }
-                                        }
-                                    }
+                                    ]
                                 }
                             },
                             "content": {

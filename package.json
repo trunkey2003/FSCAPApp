@@ -42,6 +42,6 @@
     }
   },
   "sapux": [
-    "app/featureShowcase"
+    "app/fsCapAppUI"
   ]
 }

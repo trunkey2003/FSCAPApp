@@ -8,7 +8,7 @@ sap.ui.define([
 		onInit: function () {
 			PageController.prototype.onInit.apply(this);
 
-			var oModel = new JSONModel(sap.ui.require.toUrl("sap/fe/featureShowcase/mainApp/ext/controller/data.json"));
+			var oModel = new JSONModel(sap.ui.require.toUrl("sap/fe/fsCapAppUI/mainApp/ext/controller/data.json"));
 			var that = this;
 
 			this.getView().setModel(oModel, 'graph');

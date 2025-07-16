@@ -10,3 +10,5 @@ using from './fsCapAppUI/layouts_ChildEntities1';
 using from './fsCapAppUI/layouts_ChildEntities2';
 using from './fsCapAppUI/layouts_ChartDataEntities';
 using from './fsCapAppUI/value-helps';
+
+using from './capappui/annotations';

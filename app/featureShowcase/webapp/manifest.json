@@ -27,21 +27,35 @@
         },
         "crossNavigation": {
             "inbounds": {
-				"feature-showcase": {
-					"signature": {
-						"parameters": {},
-						"additionalParameters": "allowed"
-					},
-					"semanticObject": "FeatureShowcase",
-					"action": "manage",
-					"title": "Feature Showcase List Report and Object Page",
-					"subTitle": "SAP Fiori elements V4 CAP"
-				}
-			},
+                "feature-showcase": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "FeatureShowcase",
+                    "action": "manage",
+                    "title": "Feature Showcase List Report and Object Page",
+                    "subTitle": "SAP Fiori elements V4 CAP"
+                }
+            },
             "outbounds": {
                 "ExternalNavigation": {
                     "semanticObject": "FeatureShowcaseChildEntity2",
-                    "action": "manage"
+                    "action": "manage",
+                    "parameters": {
+                        "ID": {
+                            "value": {
+                                "value": "${association2one_ID}",
+                                "format": "binding"
+                            }
+                        },
+                        "integerProperty": {
+                            "value": {
+                                "value": "${integerValue}",
+                                "format": "binding"
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -126,7 +140,7 @@
                             "navigation": {
                                 "RootEntities": {
                                     "detail": {
-                                        "route": "RootEntityObjectReport"
+                                        "outbound": "ExternalNavigation"
                                     }
                                 }
                             },
@@ -184,6 +198,11 @@
                                             ],
                                             "hideTableTitle": false,
                                             "showCounts": true
+                                        },
+                                        "aggregates": {
+                                            "fieldWithPrice": {
+                                                "label": "Total Price"
+                                            }
                                         }
                                     },
                                     "columns": {
@@ -217,21 +236,28 @@
                                             "property": "starsValue",
                                             "template": "sap.fe.featureShowcase.mainApp.ext.CustomFilter-Rating"
                                         },
-                                        "validFrom": { 
+                                        "validFrom": {
                                             "settings": {
-                                                "defaultValues": [{"operator": "LASTYEARS", "values": [10]}],
+                                                "defaultValues": [
+                                                    {
+                                                        "operator": "LASTYEARS",
+                                                        "values": [
+                                                            10
+                                                        ]
+                                                    }
+                                                ],
                                                 "operatorConfiguration": [
                                                     {
                                                         "path": "key",
-                                                         "equals": "TODAY",
-                                                         "exclude": false
-                                                     },
-                                                     {
-                                                       "path": "key",
+                                                        "equals": "TODAY",
+                                                        "exclude": false
+                                                    },
+                                                    {
+                                                        "path": "key",
                                                         "equals": "TODAYXYDAYS",
                                                         "exclude": true
-                                                     }
-                                               ]
+                                                    }
+                                                ]
                                             }
                                         }
                                     }
@@ -447,33 +473,33 @@
                                                 "placement": "Before"
                                             },
                                             "title": "{i18n>customSection}",
-                                            "actions" : {
-                                                "CustomActionSectionForm" : {
+                                            "actions": {
+                                                "CustomActionSectionForm": {
                                                     "press": "sap.fe.featureShowcase.mainApp.ext.CustomActions.messageBox",
                                                     "enabled": "{= ${ui>/editMode} !== 'Editable'}",
-                                                    "visible" : true,
+                                                    "visible": true,
                                                     "text": "{i18n>CustomActionSection}"
                                                 },
-                                                "ToggleSideContent" : {
+                                                "ToggleSideContent": {
                                                     "press": "sap.fe.featureShowcase.mainApp.ext.SideContent.toggleSideContent",
                                                     "enabled": true,
-                                                    "visible" : true,
+                                                    "visible": true,
                                                     "text": "{i18n>ToggleSideContent}"
                                                 }
                                             },
                                             "sideContent": {
                                                 "template": "sap.fe.featureShowcase.mainApp.ext.SideContent",
-                                                "equalSplit":true
+                                                "equalSplit": true
                                             }
                                         },
                                         "collectionFacetSection": {
                                             "subSections": {
-												"customSubSectionQualifier": {
-													"template": "sap.fe.featureShowcase.mainApp.ext.CustomSubSection",
-													"title": "{i18n>customSubSection}",
+                                                "customSubSectionQualifier": {
+                                                    "template": "sap.fe.featureShowcase.mainApp.ext.CustomSubSection",
+                                                    "title": "{i18n>customSubSection}",
                                                     "visible": true
-												}
-											}
+                                                }
+                                            }
                                         },
                                         "childEntities1Section": {
                                             "sideContent": {

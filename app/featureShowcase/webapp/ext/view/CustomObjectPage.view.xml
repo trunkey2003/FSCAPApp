@@ -1,5 +1,5 @@
 <mvc:View
-		controllerName="sap.fe.fsCapApp.mainApp.ext.controller.CustomObjectPage"
+		controllerName="sap.fe.featureShowcase.mainApp.ext.controller.CustomObjectPage"
 		xmlns="sap.suite.ui.commons.networkgraph"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns:l="sap.ui.layout"

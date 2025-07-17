@@ -4,7 +4,7 @@ sap.ui.define([
 	"sap/suite/ui/microchart/ComparisonMicroChart",
 	"sap/suite/ui/microchart/ComparisonMicroChartData"
 ], function (PageController, JSONModel, ComparisonMicroChart, ComparisonMicroChartData) {
-	return PageController.extend("sap.fe.fsCapApp.mainApp.ext.controller.CustomObjectPage", {
+	return PageController.extend("sap.fe.featureShowcase.mainApp.ext.controller.CustomObjectPage", {
 		onInit: function () {
 			PageController.prototype.onInit.apply(this);
 

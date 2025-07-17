@@ -1,7 +1,7 @@
 {
     "_version": "1.32.0",
     "sap.app": {
-        "id": "sap.fe.fsCapApp.mainApp",
+        "id": "sap.fe.featureShowcase.mainApp",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -164,8 +164,8 @@
                                             ]
                                         },
                                         "CustomActionLR": {
-                                            "press": "sap.fe.fsCapApp.mainApp.ext.CustomActions.messageBox",
-                                            "enabled": "sap.fe.fsCapApp.mainApp.ext.CustomActions.enabledForSingleSelect",
+                                            "press": "sap.fe.featureShowcase.mainApp.ext.CustomActions.messageBox",
+                                            "enabled": "sap.fe.featureShowcase.mainApp.ext.CustomActions.enabledForSingleSelect",
                                             "visible": true,
                                             "text": "{i18n>CustomActionLR}"
                                         }
@@ -190,7 +190,7 @@
                                         "CustomColumn": {
                                             "key": "customColumnLR",
                                             "header": "{i18n>validityPeriodLR}",
-                                            "template": "sap.fe.fsCapApp.mainApp.ext.CustomColumn-DateRangeLR",
+                                            "template": "sap.fe.featureShowcase.mainApp.ext.CustomColumn-DateRangeLR",
                                             "availability": "Default",
                                             "horizontalAlign": "Center",
                                             "width": "auto",
@@ -210,15 +210,39 @@
                                     "navigationProperties": [
                                         "childEntities1",
                                         "childEntity2/decimalProperty"
-                                    ]
+                                    ],
+                                    "filterFields": {
+                                        "starsValue": {
+                                            "label": "{i18n>customFilter}",
+                                            "property": "starsValue",
+                                            "template": "sap.fe.featureShowcase.mainApp.ext.CustomFilter-Rating"
+                                        },
+                                        "validFrom": { 
+                                            "settings": {
+                                                "defaultValues": [{"operator": "LASTYEARS", "values": [10]}],
+                                                "operatorConfiguration": [
+                                                    {
+                                                        "path": "key",
+                                                         "equals": "TODAY",
+                                                         "exclude": false
+                                                     },
+                                                     {
+                                                       "path": "key",
+                                                        "equals": "TODAYXYDAYS",
+                                                        "exclude": true
+                                                     }
+                                               ]
+                                            }
+                                        }
+                                    }
                                 }
                             },
                             "content": {
                                 "header": {
                                     "actions": {
                                         "CustomActionLRGlobal": {
-                                            "press": "sap.fe.fsCapApp.mainApp.ext.CustomActions.messageBox",
-                                            "enabled": "sap.fe.fsCapApp.mainApp.ext.CustomActions.enabled",
+                                            "press": "sap.fe.featureShowcase.mainApp.ext.CustomActions.messageBox",
+                                            "enabled": "sap.fe.featureShowcase.mainApp.ext.CustomActions.enabled",
                                             "visible": true,
                                             "text": "{i18n>CustomActionLRGlobal}"
                                         }
@@ -295,7 +319,7 @@
                                         },
                                         "CustomColumnOnObjectPage": {
                                             "header": "{i18n>customColumn}",
-                                            "template": "sap.fe.fsCapApp.mainApp.ext.CustomColumn-ProcessFlow",
+                                            "template": "sap.fe.featureShowcase.mainApp.ext.CustomColumn-ProcessFlow",
                                             "availability": "Default",
                                             "properties": [
                                                 "booleanProperty",
@@ -305,13 +329,13 @@
                                     },
                                     "actions": {
                                         "CustomActionOPTableToolbar": {
-                                            "press": "sap.fe.fsCapApp.mainApp.ext.CustomActions.messageBox",
+                                            "press": "sap.fe.featureShowcase.mainApp.ext.CustomActions.messageBox",
                                             "enabled": "{= %{deletePossible} === true}",
                                             "visible": true,
                                             "text": "{i18n>CustomActionOPTableToolbar}"
                                         },
                                         "ToggleSideContent": {
-                                            "press": "sap.fe.fsCapApp.mainApp.ext.SideContent.toggleSideContentItem1",
+                                            "press": "sap.fe.featureShowcase.mainApp.ext.SideContent.toggleSideContentItem1",
                                             "enabled": true,
                                             "visible": true,
                                             "text": "{i18n>ToggleSideContent}"
@@ -321,7 +345,7 @@
                                 "@com.sap.vocabularies.UI.v1.DataPoint#progressIndicator": {
                                     "navigation": {
                                         "targetSections": {
-                                            "sectionId": "sap.fe.fsCapApp.mainApp::RootEntityObjectReport--fe::FacetSection::chartDataCollection"
+                                            "sectionId": "sap.fe.featureShowcase.mainApp::RootEntityObjectReport--fe::FacetSection::chartDataCollection"
                                         }
                                     }
                                 },
@@ -336,7 +360,7 @@
                                     "fields": {
                                         "CustomContentFieldGroup": {
                                             "label": "{i18n>validityPeriodOP}",
-                                            "template": "sap.fe.fsCapApp.mainApp.ext.CustomField-DatePicker",
+                                            "template": "sap.fe.featureShowcase.mainApp.ext.CustomField-DatePicker",
                                             "position": {
                                                 "placement": "Before",
                                                 "anchor": "DataField::validTo"
@@ -362,7 +386,7 @@
                                     },
                                     "actions": {
                                         "CustomActionForm": {
-                                            "press": "sap.fe.fsCapApp.mainApp.ext.CustomActions.messageBox",
+                                            "press": "sap.fe.featureShowcase.mainApp.ext.CustomActions.messageBox",
                                             "enabled": true,
                                             "visible": true,
                                             "inline": true,
@@ -374,7 +398,7 @@
                                     "fields": {
                                         "CustomFieldHeaderOP": {
                                             "label": "{i18n>validityPeriodOP}",
-                                            "template": "sap.fe.fsCapApp.mainApp.ext.CustomField-DateRange",
+                                            "template": "sap.fe.featureShowcase.mainApp.ext.CustomField-DateRange",
                                             "position": {
                                                 "placement": "After",
                                                 "anchor": "DataField::stringProperty"
@@ -407,7 +431,7 @@
                                     "visible": true,
                                     "actions": {
                                         "CustomActionOPHeader": {
-                                            "press": "sap.fe.fsCapApp.mainApp.ext.CustomActions.messageBox",
+                                            "press": "sap.fe.featureShowcase.mainApp.ext.CustomActions.messageBox",
                                             "enabled": "{= ${ui>/editMode} === 'Editable'}",
                                             "visible": true,
                                             "text": "{i18n>CustomActionOPHeader}"
@@ -417,7 +441,7 @@
                                 "body": {
                                     "sections": {
                                         "customSectionQualifier": {
-                                            "template": "sap.fe.fsCapApp.mainApp.ext.CustomSection",
+                                            "template": "sap.fe.featureShowcase.mainApp.ext.CustomSection",
                                             "position": {
                                                 "anchor": "chartDataCollection",
                                                 "placement": "Before"
@@ -425,27 +449,27 @@
                                             "title": "{i18n>customSection}",
                                             "actions" : {
                                                 "CustomActionSectionForm" : {
-                                                    "press": "sap.fe.fsCapApp.mainApp.ext.CustomActions.messageBox",
+                                                    "press": "sap.fe.featureShowcase.mainApp.ext.CustomActions.messageBox",
                                                     "enabled": "{= ${ui>/editMode} !== 'Editable'}",
                                                     "visible" : true,
                                                     "text": "{i18n>CustomActionSection}"
                                                 },
                                                 "ToggleSideContent" : {
-                                                    "press": "sap.fe.fsCapApp.mainApp.ext.SideContent.toggleSideContent",
+                                                    "press": "sap.fe.featureShowcase.mainApp.ext.SideContent.toggleSideContent",
                                                     "enabled": true,
                                                     "visible" : true,
                                                     "text": "{i18n>ToggleSideContent}"
                                                 }
                                             },
                                             "sideContent": {
-                                                "template": "sap.fe.fsCapApp.mainApp.ext.SideContent",
+                                                "template": "sap.fe.featureShowcase.mainApp.ext.SideContent",
                                                 "equalSplit":true
                                             }
                                         },
                                         "collectionFacetSection": {
                                             "subSections": {
 												"customSubSectionQualifier": {
-													"template": "sap.fe.fsCapApp.mainApp.ext.CustomSubSection",
+													"template": "sap.fe.featureShowcase.mainApp.ext.CustomSubSection",
 													"title": "{i18n>customSubSection}",
                                                     "visible": true
 												}
@@ -453,7 +477,7 @@
                                         },
                                         "childEntities1Section": {
                                             "sideContent": {
-                                                "template": "sap.fe.fsCapApp.mainApp.ext.SideContentTable"
+                                                "template": "sap.fe.featureShowcase.mainApp.ext.SideContentTable"
                                             }
                                         }
                                     }
@@ -461,7 +485,7 @@
                                 "footer": {
                                     "actions": {
                                         "CustomActionOPFooter": {
-                                            "press": "sap.fe.fsCapApp.mainApp.ext.CustomActions.messageBox",
+                                            "press": "sap.fe.featureShowcase.mainApp.ext.CustomActions.messageBox",
                                             "enabled": "{= ${ui>/editMode} !== 'Editable'}",
                                             "visible": true,
                                             "text": "{i18n>CustomActionOPFooter}"
@@ -486,8 +510,8 @@
                                 "header": {
                                     "facets": {
                                         "CustomHeaderFacet": {
-                                            "template": "sap.fe.fsCapApp.mainApp.ext.CustomHeaderFacet-ProcessFlow",
-                                            "templateEdit": "sap.fe.fsCapApp.mainApp.ext.CustomHeaderFacet-Edit",
+                                            "template": "sap.fe.featureShowcase.mainApp.ext.CustomHeaderFacet-ProcessFlow",
+                                            "templateEdit": "sap.fe.featureShowcase.mainApp.ext.CustomHeaderFacet-Edit",
                                             "stashed": false,
                                             "title": "{i18n>customHeaderFacet}",
                                             "position": {
@@ -510,7 +534,7 @@
                     "name": "sap.fe.core.fpm",
                     "options": {
                         "settings": {
-                            "viewName": "sap.fe.fsCapApp.mainApp.ext.view.CustomObjectPage",
+                            "viewName": "sap.fe.featureShowcase.mainApp.ext.view.CustomObjectPage",
                             "entitySet": "ChildEntities3"
                         }
                     }
